@@ -1,0 +1,225 @@
+:root {
+  --bg-color: #fff;
+  --text-color: #222;
+  --accent-color: #0083b0;
+  --btn-color: #00b4db;
+  --card-bg: #f4f4f4;
+}
+body.dark-mode {
+  --bg-color: #121212;
+  --text-color: #eee;
+  --accent-color: #00d2ff;
+  --btn-color: #0077aa;
+  --card-bg: #222;
+}
+* {
+  box-sizing: border-box;
+  margin: 0; padding: 0;
+}
+html, body {
+  height: 100%;
+  background: var(--bg-color);
+  color: var(--text-color);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background 0.3s, color 0.3s;
+}
+.container {
+  background: var(--card-bg);
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  width: 100vw;
+  max-width: 540px;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  padding: 0.6rem 0.8rem;
+  overflow: hidden;
+}
+.toggle-mode {
+  text-align: right;
+  margin-bottom: 0.4rem;
+  flex-shrink: 0;
+}
+.toggle-mode button {
+  background: none;
+  border: none;
+  color: var(--accent-color);
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 0;
+}
+h1 {
+  text-align: center;
+  margin-bottom: 0.5rem;
+  color: var(--accent-color);
+  font-size: 1.4rem;
+  flex-shrink: 0;
+  user-select: none;
+}
+form {
+  flex-shrink: 0;
+  height: 34vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.3rem;
+}
+label {
+  font-weight: 600;
+  font-size: 0.9rem;
+  user-select: none;
+}
+input, select {
+  width: 100%;
+  padding: 0.3rem 0.5rem;
+  font-size: 0.95rem;
+  border-radius: 6px;
+  border: 1.5px solid #ccc;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: border-color 0.2s;
+}
+input:focus, select:focus {
+  border-color: var(--btn-color);
+  outline: none;
+}
+
+/* Loan Term group special styling */
+.term-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+.term-inputs {
+  display: flex;
+  gap: 0.6rem;
+}
+.term-inputs input {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+.term-inputs select {
+  flex: 0 0 90px;
+  border-radius: 6px;
+}
+@media (max-width: 380px) {
+  .term-inputs {
+    flex-direction: column;
+  }
+  .term-inputs select {
+    flex: 1 1 auto;
+    width: 100%;
+  }
+}
+
+button[type="submit"] {
+  background-color: var(--btn-color);
+  color: #fff;
+  border: none;
+  font-size: 1rem;
+  padding: 0.55rem 0;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+  flex-shrink: 0;
+  user-select: none;
+}
+button[type="submit"]:hover {
+  background-color: var(--accent-color);
+}
+.results {
+  flex-grow: 1;
+  background: var(--card-bg);
+  border-radius: 10px;
+  padding: 0.9rem 1rem 0.6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  user-select: none;
+}
+.results h2 {
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin-bottom: 0.4rem;
+  color: var(--accent-color);
+  flex-shrink: 0;
+}
+.results p {
+  font-size: 1rem;
+  flex-shrink: 0;
+  margin-bottom: 0.25rem;
+}
+.chart-wrapper {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+  max-height: 190px;
+  min-height: 170px;
+}
+canvas {
+  max-width: 240px;
+  max-height: 160px;
+  width: 100%;
+  height: auto;
+}
+.pie-labels {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  font-weight: 700;
+  font-size: 0.95rem;
+  flex-shrink: 0;
+}
+.pie-label {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  white-space: nowrap;
+}
+.color-box {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+.color-principal {
+  background-color: #00b4db;
+}
+.color-interest {
+  background-color: #ff6384;
+}
+/* Responsive smaller font on very short windows */
+@media (max-height: 550px) {
+  h1 {
+    font-size: 1.1rem;
+  }
+  label, input, select {
+    font-size: 0.85rem;
+  }
+  button[type="submit"] {
+    font-size: 0.9rem;
+    padding: 0.45rem 0;
+  }
+  .results h2 {
+    font-size: 1rem;
+  }
+  .pie-labels {
+    font-size: 0.85rem;
+  }
+}
